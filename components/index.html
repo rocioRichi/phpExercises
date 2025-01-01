@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Ejercicios PHP</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Header Component -->
+  <header-component></header-component>
+
+  <!-- Zona de ejercicio actual -->
+  <section id="exercise">
+    <h2>Ejercicio 1: Sumar dos números</h2>
+    <div>
+      <p>Descripción del ejercicio: Sumar dos números.</p>
+      <pre><code>
+        // Código PHP para sumar dos números
+        $a = 5;
+        $b = 3;
+        echo $a + $b;
+      </code></pre>
+    </div>
+  </section>
+
+  <!-- Navigation Buttons Component -->
+  <navigation-buttons></navigation-buttons>
+
+  <!-- Importa los archivos JS donde están tus Web Components -->
+  <script src="js/app.js"></script>
+  <script src="js/header-component.js"></script> <!-- Archivo del header-component -->
+  <script src="js/navigation-buttons.js"></script> <!-- Archivo del navigation-buttons -->
+
+  <script>
+    // Manejo del evento de navegación
+    document.querySelector('navigation-buttons').addEventListener('navigate', (event) => {
+      if (event.detail === 'previous') {
+        alert('Navegar al ejercicio anterior');
+      } else if (event.detail === 'next') {
+        alert('Navegar al siguiente ejercicio');
+      }
+    });
+  </script>
+</body>
+
+</html>
