@@ -11,4 +11,4 @@ COPY . .
 EXPOSE 3000
 
 # Inicia el servidor PHP
-CMD ["php", "-S", "0.0.0.0:3000"]
+CMD ["php", "-S", "0.0.0.0:${PORT:-3000}", "-t", "public"]
