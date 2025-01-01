@@ -2,7 +2,11 @@
 FROM php:8.0-cli
 
 # Instalar dependencias si es necesario
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev
+RUN apt-get update && apt-get install -y \
+  libpng-dev \
+  libjpeg-dev \
+  libfreetype6-dev \
+  && rm -r /var/lib/apt/lists/*
 
 # Copiar los archivos del proyecto al contenedor
 COPY . /var/www/html
