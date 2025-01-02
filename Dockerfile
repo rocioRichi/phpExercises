@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
 
-RUN echo "Etc/UTC" > /etc/timezone && \
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    echo "Etc/UTC" > /etc/timezone && \
     ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
