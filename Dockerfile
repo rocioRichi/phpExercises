@@ -1,4 +1,4 @@
-FROM php:7.4-apache 
+FROM ubuntu:20.04
 
 # Actualizar e instalar dependencias
 RUN apt-get update && \
@@ -9,7 +9,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copiar el código del proyecto al contenedor
-COPY ./phpExercises
+COPY . /app
 
 # Exponer el puerto que usará PHP
 EXPOSE 3000
