@@ -1,5 +1,9 @@
 FROM ubuntu:20.04
 
+RUN echo "Etc/UTC" > /etc/timezone && \
+    ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
 # Actualizar e instalar dependencias
 RUN apt-get update && \
     apt-get install -y php php-cli php-fpm php-mbstring php-xml php-curl php-json && \
