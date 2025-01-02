@@ -9,7 +9,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copiar el código del proyecto al contenedor
-COPY . /app
+COPY . .
 
 # Exponer el puerto que usará PHP
 EXPOSE 3000
