@@ -16,6 +16,6 @@ if (isset($_GET['exercise'])) {
         echo "El ejercicio solicitado no existe.";
     }
 } else {
-    echo "Bienvenido. Por favor, selecciona un ejercicio para continuar.";
+    include("exercise-index.php");
 }
 ?>
