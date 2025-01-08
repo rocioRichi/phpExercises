@@ -1,54 +1,25 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  padding: 0;
-  margin: 0;
-}
-
-h1,
-h2 {
-  color: #333;
-}
-
-.main-content {
-  text-align: center;
-  padding: 20px;
-}
-
-input,
-button {
-  padding: 10px;
-  margin: 5px;
-  font-size: 16px;
+#navigation {
+  margin: 1em 0;
 }
 
 button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.navigation {
-  margin-top: 20px;
-}
-
-.navigation button,
-.navigation a {
-  margin: 10px;
-  padding: 10px 20px;
+  padding: 0.5em 1em;
+  margin-right: 1em;
   background-color: #007bff;
   color: white;
   border: none;
-  text-decoration: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.navigation button:hover,
-.navigation a:hover {
-  background-color: #0056b3;
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#exercise-container {
+  margin-top: 1em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
