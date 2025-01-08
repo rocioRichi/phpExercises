@@ -43,12 +43,12 @@ document.getElementById("load-exercise").addEventListener("click", () => {
 });
 
 // Manejo del evento de navegación
-document
-  .querySelector("navigation-buttons")
-  .addEventListener("navigate", (event) => {
-    if (event.detail === "previous") {
-      alert("Navegar al ejercicio anterior");
-    } else if (event.detail === "next") {
-      alert("Navegar al siguiente ejercicio");
-    }
-  });
+// document
+//   .querySelector("navigation-buttons")
+//   .addEventListener("navigate", (event) => {
+//     if (event.detail === "previous") {
+//       alert("Navegar al ejercicio anterior");
+//     } else if (event.detail === "next") {
+//       alert("Navegar al siguiente ejercicio");
+//     }
+//   });
