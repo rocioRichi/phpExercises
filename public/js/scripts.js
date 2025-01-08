@@ -21,14 +21,13 @@ async function sendData(data) {
     console.error("Error al conectar con el backend:", error);
   }
 }
-
 document.getElementById("load-exercise").addEventListener("click", () => {
   const url = "https://phpexercises.onrender.com/index.php?exercise=exercise1";
 
   fetch(url)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor.");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.text();
     })
@@ -37,8 +36,9 @@ document.getElementById("load-exercise").addEventListener("click", () => {
     })
     .catch((error) => {
       console.error("Error al cargar el ejercicio:", error);
-      document.getElementById("exercise-container").innerHTML =
-        "<p>Error al cargar el ejercicio. Por favor, inténtalo de nuevo más tarde.</p>";
+      document.getElementById(
+        "exercise-container"
+      ).innerHTML = `<p>Error: ${error.message}. Revisa la consola para más detalles.</p>`;
     });
 });
 
