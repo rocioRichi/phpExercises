@@ -12,6 +12,9 @@
   <!-- Header Component -->
   <header-component></header-component>
 
+  <button id="load-exercise">Cargar Ejercicio1</button>
+  <div id="exercise-container"></div>
+
   <!-- Zona de ejercicio actual -->
   <section id="exercise">
     <h2>Ejercicio 1: Sumar dos números</h2>
@@ -34,16 +37,7 @@
   <script src="js/header-component.js"></script> <!-- Archivo del header-component -->
   <script src="js/navigation-buttons.js"></script> <!-- Archivo del navigation-buttons -->
 
-  <script>
-    // Manejo del evento de navegación
-    document.querySelector('navigation-buttons').addEventListener('navigate', (event) => {
-      if (event.detail === 'previous') {
-        alert('Navegar al ejercicio anterior');
-      } else if (event.detail === 'next') {
-        alert('Navegar al siguiente ejercicio');
-      }
-    });
-  </script>
+  <script src="./js/scripts.js"></script>
 </body>
 
 </html>
