@@ -8,7 +8,7 @@ function loadExercise(index) {
     alert("Ejercicio no encontrado.");
     return;
   }
-  const url = `https://phpexercises.onrender.com/index.php?exercise=${exercise}`;
+  const url = `https://phpexercises.onrender.com/exercise-index.php?`;
   fetch(url)
     .then((response) => {
       if (!response.ok) {
