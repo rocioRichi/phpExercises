@@ -10,7 +10,6 @@ $exercises = [
 echo "<h1>Índice de Ejercicios</h1>";
 echo "<ul>";
 foreach ($exercises as $exercise) {
-echo "<li><a href='https://phpexercises.onrender.com/index.php?exercise={$exercise['id']}'>{$exercise['title']}</a></li>";
-}
+    echo "<li><button class='load-exercise' data-id='{$exercise['id']}'>{$exercise['title']}</button></li>";}
 echo "</ul>";
 ?>

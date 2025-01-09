@@ -39,6 +39,34 @@ document.getElementById("next-button").addEventListener("click", () => {
     loadExercise(currentExerciseIndex + 1);
   }
 });
+// Captura clics en botones con la clase 'load-exercise'
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("load-exercise")) {
+    const exerciseId = event.target.dataset.id; // Obtiene el ID del ejercicio
+    const url = `https://phpexercises.onrender.com/index.php?exercise=${exerciseId}`;
+    loadExerciseByUrl(url);
+  }
+});
+
+// Función para cargar un ejercicio desde una URL
+function loadExerciseByUrl(url) {
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById("exercise-container").innerHTML = data;
+    })
+    .catch((error) => {
+      console.error("Error al cargar el ejercicio:", error);
+      document.getElementById(
+        "exercise-container"
+      ).innerHTML = `<p>Error: ${error.message}</p>`;
+    });
+}
 
 // Cargar el primer ejercicio al inicio
 loadExercise(currentExerciseIndex);
