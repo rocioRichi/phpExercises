@@ -39,7 +39,35 @@ document.getElementById("next-button").addEventListener("click", () => {
   loadExercise(currentExerciseIndex + 1);
 });
 
-// Cargar índice o el primer ejercicio al inicio
+// Manejo del botón "Índice de Ejercicios"
+document.getElementById("index-button").addEventListener("click", () => {
+  const container = document.getElementById("exercise-container");
+
+  // Cargar el índice de ejercicios usando fetch
+  fetch("https://phpexercises.onrender.com/exercise-index.php")
+    .then((response) => response.text())
+    .then((data) => {
+      container.innerHTML = data;
+
+      // Agregar eventos a los botones de ejercicio cargados dinámicamente
+      const buttons = document.querySelectorAll(".load-exercise");
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          const exerciseId = button.getAttribute("data-id"); // Obtener el ID del ejercicio
+          const exerciseIndex = exercises.indexOf(exerciseId); // Buscar el índice en el array de ejercicios
+          if (exerciseIndex >= 0) {
+            loadExercise(exerciseIndex); // Cargar el ejercicio
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Error al cargar el índice:", error);
+      container.innerHTML = `<p>Error al cargar el índice.</p>`;
+    });
+});
+
+// Cargar el primer ejercicio o índice al inicio
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("exercise-container");
 
@@ -51,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         container.innerHTML = data;
 
-        // Agrega eventos a los botones de ejercicio cargados dinámicamente
+        // Agregar eventos a los botones de ejercicio cargados dinámicamente
         const buttons = document.querySelectorAll(".load-exercise");
         buttons.forEach((button, index) => {
           button.addEventListener("click", () => {

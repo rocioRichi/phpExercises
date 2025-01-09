@@ -23,3 +23,21 @@ button:disabled {
   border: 1px solid #ddd;
   background-color: #f9f9f9;
 }
+#navigation button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4caf50; /* Color de fondo verde */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#navigation button:hover {
+  background-color: #45a049; /* Color al pasar el ratón */
+}
+
+#navigation a {
+  text-decoration: none;
+  color: white; /* Color del texto del enlace */
+}
