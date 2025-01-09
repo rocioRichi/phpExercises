@@ -2,13 +2,16 @@ const exercises = ["exercise1", "exercise2", "exercise3"];
 
 let currentExerciseIndex = 0;
 
+// Carga dinámica de un ejercicio
 function loadExercise(index) {
-  const exercise = exercises[index];
-  if (!exercise) {
-    alert("Ejercicio no encontrado.");
+  if (index < 0 || index >= exercises.length) {
+    alert("No hay más ejercicios en esta dirección.");
     return;
   }
-  const url = `https://phpexercises.onrender.com/exercise-index.php?`;
+
+  const exerciseId = exercises[index];
+  const url = `https://phpexercises.onrender.com/index.php?exercise=${exerciseId}`;
+
   fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -18,7 +21,7 @@ function loadExercise(index) {
     })
     .then((data) => {
       document.getElementById("exercise-container").innerHTML = data;
-      currentExerciseIndex = index;
+      currentExerciseIndex = index; // Actualiza el índice actual
     })
     .catch((error) => {
       console.error("Error al cargar el ejercicio:", error);
@@ -28,45 +31,28 @@ function loadExercise(index) {
     });
 }
 
-// Manejo de navegación
+// Manejo de navegación con botones
 document.getElementById("prev-button").addEventListener("click", () => {
-  if (currentExerciseIndex > 0) {
-    loadExercise(currentExerciseIndex - 1);
-  }
+  loadExercise(currentExerciseIndex - 1);
 });
+
 document.getElementById("next-button").addEventListener("click", () => {
-  if (currentExerciseIndex < exercises.length - 1) {
-    loadExercise(currentExerciseIndex + 1);
-  }
-});
-// Captura clics en botones con la clase 'load-exercise'
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("load-exercise")) {
-    const exerciseId = event.target.dataset.id; // Obtiene el ID del ejercicio
-    const url = `https://phpexercises.onrender.com/index.php?exercise=${exerciseId}`;
-    loadExerciseByUrl(url);
-  }
+  loadExercise(currentExerciseIndex + 1);
 });
 
-// Función para cargar un ejercicio desde una URL
-function loadExerciseByUrl(url) {
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then((data) => {
-      document.getElementById("exercise-container").innerHTML = data;
-    })
-    .catch((error) => {
-      console.error("Error al cargar el ejercicio:", error);
-      document.getElementById(
-        "exercise-container"
-      ).innerHTML = `<p>Error: ${error.message}</p>`;
-    });
-}
-
-// Cargar el primer ejercicio al inicio
-loadExercise(currentExerciseIndex);
+// Cargar índice o el primer ejercicio al inicio
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("exercise-container");
+  if (!container.innerHTML.trim()) {
+    // Carga el índice si no hay contenido
+    fetch("https://phpexercises.onrender.com/exercise-index.php")
+      .then((response) => response.text())
+      .then((data) => {
+        container.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error("Error al cargar el índice:", error);
+        container.innerHTML = `<p>Error al cargar el índice.</p>`;
+      });
+  }
+});
