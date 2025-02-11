@@ -1,4 +1,4 @@
-const exercises = ["exercise1", "exercise2", "exercise3"];
+const exercises = ["exercise1", "exercise2", "exercise3", "1", "1Destino"];
 let currentExerciseIndex = 0;
 
 // Carga dinámica de un ejercicio
