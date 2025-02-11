@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form action="1Destino.php" method="POST">
+  <form action="https://phpexercises.onrender.com/exercises/1Destino.php" method="POST">
     Nombre: <input type="text" name="nombre"><br>
     Email : <input type="text" name="email"><br>
     <input type="submit" value="Enviar">
