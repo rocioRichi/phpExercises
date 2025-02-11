@@ -10,11 +10,11 @@
 <body>
   Hola
   <?php
-  echo $_GET["nombre"]; ?>
+  echo $_POST["nombre"]; ?>
   <br>
   Tu email es:
   <?php
-  echo $_GET["email"]; ?>
+  echo $_POST["email"]; ?>
 </body>
 
 </html>
